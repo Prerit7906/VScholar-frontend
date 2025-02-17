@@ -1,0 +1,9 @@
+@import "tailwindcss";
+#root {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.clip-custom {
+  clip-path:polygon(17% 11%, 212% 70%, -80% 111%, 0% 100%);
+}
