@@ -1,24 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+// src/App.js
 import './App.css'
 import Navbar from './components/Navbar'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, Navigate } from 'react-router-dom'
 import Home from './pages/Home'
 import AboutUs from './pages/AboutUs'
 import ContactUs from './pages/ContactUs'
 import Career from './pages/Career'
+import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className='div'>
-      <Navbar/>
-      <Routes>
-      <Route path='/home' element={<Home/>}/>
-      <Route path='/about' element={<AboutUs/>}/>
-      <Route path='/contact' element={<ContactUs />}/>
-      <Route path='/career' element={<Career/>}/>
-      </Routes>
+    <div className="div">
+      <Navbar />
+      <div className="main-content">
+        <Routes>
+          <Route path="/" element={<Navigate to="/home" replace />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/career" element={<Career />} />
+        </Routes>
+      </div>
+      <Footer />
     </div>
   )
 }

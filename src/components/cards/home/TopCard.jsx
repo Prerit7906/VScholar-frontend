@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
 
-// Helper function to lighten a hex color by a percentage.
+// Helper function for hex colors (unchanged)
 function lightenColor(hex, percent) {
-  // Remove '#' if present
   hex = hex.replace(/^#/, '')
-  // Expand shorthand form (e.g. "03F") to full form ("0033FF")
   if (hex.length === 3) {
     hex = hex.split('').map(x => x + x).join('')
   }
@@ -13,7 +11,6 @@ function lightenColor(hex, percent) {
   let g = (num >> 8) & 0xFF
   let b = num & 0xFF
 
-  // Calculate new RGB values
   r = Math.min(255, Math.floor(r + (255 - r) * (percent / 100)))
   g = Math.min(255, Math.floor(g + (255 - g) * (percent / 100)))
   b = Math.min(255, Math.floor(b + (255 - b) * (percent / 100)))
@@ -21,10 +18,24 @@ function lightenColor(hex, percent) {
   return `rgb(${r}, ${g}, ${b})`
 }
 
+// New helper function for RGBA strings
+function lightenRgba(color, percent) {
+  // Expecting format: "rgba(r, g, b, a)"
+  const values = color.match(/[\d.]+/g)
+  if (!values || values.length < 4) return color
+  let [r, g, b, a] = values
+  r = Math.min(255, Math.floor(parseFloat(r) + (255 - parseFloat(r)) * (percent / 100)))
+  g = Math.min(255, Math.floor(parseFloat(g) + (255 - parseFloat(g)) * (percent / 100)))
+  b = Math.min(255, Math.floor(parseFloat(b) + (255 - parseFloat(b)) * (percent / 100)))
+  return `rgba(${r}, ${g}, ${b}, ${a})`
+}
+
 const TopCard = ({ icon, color, title, description }) => {
   const [isHovered, setIsHovered] = useState(false)
-  // When hovered, use a light version (80% toward white) of the color; otherwise white.
-  const bgColor = isHovered ? lightenColor(color, 80) : 'white'
+  // Check if color is RGBA; if so, use lightenRgba, otherwise use lightenColor.
+  const bgColor = color.startsWith('rgba')
+    ? (isHovered ? lightenRgba(color, 80) : 'white')
+    : (isHovered ? lightenColor(color, 80) : 'white')
 
   return (
     <div
@@ -36,8 +47,8 @@ const TopCard = ({ icon, color, title, description }) => {
       <img 
         src={icon} 
         alt={title} 
-        className="w-16 h-16 mx-auto mb-4 border-[3px] p-1 rounded-md" 
-        style={{ borderColor: color }}
+        className="w-16 h-16 mx-auto mb-4 border-none p-2 rounded-md" 
+        style={{ backgroundColor: color }}
       />
       <h3 className="text-lg font-bold text-gray-800">{title}</h3>
       <p className="text-sm text-gray-600 mt-2">{description}</p>

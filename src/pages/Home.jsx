@@ -4,7 +4,10 @@ import { Pagination, Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import TopCard from '../components/cards/home/TopCard'
+import CourseCard from '../components/cards/home/CourseCard'
 import img1 from '../assets/home/img1.jpg'
+import img2 from '../assets/home/img2.jpg'
+import img3 from '../assets/home/img3.jpg'
 import splash from '../assets/home/splash.png'
 import icon1 from '../assets/home/resources/icon1.jpg'
 import icon2 from '../assets/home/resources/icon2.png'
@@ -12,37 +15,69 @@ import icon3 from '../assets/home/resources/icon3.png'
 import icon4 from '../assets/home/resources/icon4.png'
 
 const Home = () => {
-  // Data for the "Top categories"
+  // Data for the "Exclusive Learning Resources" carousel
   const categoriesData = [
     {
       icon: icon1,
-      color: "#598bc8",
+      color: "rgba(89, 183, 200,0.40)",
       title: 'Comprehensive Study Resources',
       description: `Enhance your learning with curated notes, worksheets, mind maps, and e-books for quick revisions and deeper understanding.`,
     },
     {
       icon: icon2,
-      color: "#f59d07",
+      color: "rgba(245, 158, 7, 0.40)",
       title: 'Interactive Video Learning',
       description: `Access a rich library of recorded lectures and join live doubt-solving sessions with expert educators to clarify your questions in real time.`,
     },
     {
       icon: icon3,
-      color: "rgb(112, 213, 252)",
+      color: "rgba(112, 212, 252, 0.40)",
       title: 'Smart Exam Preparation',
       description: `Enhance your learning with mock tests and detailed performance tracking to identify strengths and areas for improvement.`,
     },
     {
       icon: icon4,
-      color: "#fece00",
+      color: "rgba(254, 206, 0,0.40)",
       title: 'Recognitions & Rewards',
       description: `Earn badges and certifications for your achievements, showcasing your progress and expertise.`,
     },
   ]
 
+  // Data for the "Courses We Offer" section
+  const courses = [
+    {
+      image: img1,
+      rating: 4.2,
+      title: 'Academic Subjects',
+      description: 'Master core subjects with our expert educators through interactive lessons, comprehensive curriculum, and real-world applications. Our courses in Mathematics, Science, Social Studies, English, and Computer Science are designed to build a strong academic foundation and foster critical thinking, ensuring you excel in every area.',
+      subjects: ['Mathematics', 'Science', 'Social Studies', 'English', 'Computer Science'],
+    },
+    {
+      image: img1,
+      rating: 4.0,
+      title: 'Languages',
+      description: 'Expand your horizons with our immersive language courses. Learn to speak Spanish, French, German, Chinese, and Japanese through engaging lessons that not only build your conversational skills but also deepen your understanding of diverse cultures. Enjoy interactive practice sessions and real-world applications to gain confidence and fluency.',
+      subjects: ['Spanish', 'French', 'German', 'Chinese', 'Japanese'],
+    },
+    {
+      image: img3,
+      rating: 4.5,
+      title: 'Extracurriculars',
+      description: "Unlock your creativity and explore new passions with our exciting extracurricular courses. Whether you're interested in music, art, dance, yoga, or coding, we provide engaging lessons designed to nurture your skills and help you grow beyond academics. Enhance your personal development while having fun!",
+      subjects: ['Music', 'Art', 'Dance', 'Yoga', 'Coding'],
+    },
+    // {
+    //   image: img3,
+    //   rating: 4.5,
+    //   title: 'Exam Preparation',
+    //   description: 'Prepare for standardized tests with our comprehensive courses.',
+    //   subjects: ['SAT', 'ACT', 'IELTS', 'TOEFL', 'GRE'],
+    // }
+  ]
+
   return (
     <>
-      {/* Inline styles for heading animation, Swiper pagination spacing and bullet color */}
+      {/* Inline styles for animations and Swiper customizations */}
       <style>{`
         @keyframes slideInFromBottom {
           0% {
@@ -57,7 +92,7 @@ const Home = () => {
         .slide-in {
           animation: slideInFromBottom 0.5s ease-out forwards;
         }
-        /* Override Swiper pagination bullet color and add spacing above dots */
+        /* Swiper pagination custom styles */
         .swiper-pagination-bullet {
           background: rgb(25,40,65) !important;
         }
@@ -91,13 +126,11 @@ const Home = () => {
 
           {/* Right Images */}
           <div className="relative md:w-1/2 mt-10 md:mt-0 flex justify-center">
-            {/* Main Image */}
             <img
               src={img1}
               alt="Main"
               className="w-80 h-80 object-cover shadow-lg clip-custom relative z-5"
             />
-            {/* Splash Effect */}
             <img
               src={splash}
               alt="Splash Effect"
@@ -107,13 +140,12 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Exclusive Learning Resources Section */}
       <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
-          Exclusive Learning Resources
+            Exclusive Learning Resources
           </h2>
-          
-          {/* Swiper Carousel */}
           <Swiper
             modules={[Pagination, Autoplay]}
             spaceBetween={20}
@@ -139,6 +171,27 @@ const Home = () => {
               </SwiperSlide>
             ))}
           </Swiper>
+        </div>
+      </section>
+
+      {/* Courses We Offer Section */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
+            Courses We Offer
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {courses.map((course) => (
+              <CourseCard
+                key={course.title}
+                image={course.image}
+                rating={course.rating}
+                title={course.title}
+                description={course.description}
+                subjects={course.subjects}
+              />
+            ))}
+          </div>
         </div>
       </section>
     </>

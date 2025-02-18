@@ -7,3 +7,22 @@
 .clip-custom {
   clip-path:polygon(17% 11%, 212% 70%, -80% 111%, 0% 100%);
 }
+
+/* Ensure the root and body take up the full height */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Make App fill the viewport and push the footer down */
+.div {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Grow the content so the footer stays at the bottom */
+.main-content {
+  flex: 1;
+}
