@@ -13,8 +13,10 @@ import icon1 from '../assets/home/resources/icon1.jpg'
 import icon2 from '../assets/home/resources/icon2.png'
 import icon3 from '../assets/home/resources/icon3.png'
 import icon4 from '../assets/home/resources/icon4.png'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
+  const navigate=useNavigate();
   // Data for the "Exclusive Learning Resources" carousel
   const categoriesData = [
     {
@@ -115,7 +117,7 @@ const Home = () => {
 
             {/* CTA Buttons */}
             <div className="space-x-4">
-              <button className="bg-[rgb(25,40,65)] border-white cursor-pointer border text-white px-6 py-2 rounded-md font-medium hover:bg-[rgb(135,219,219)] hover:text-[rgb(25,40,65)] transition-colors">
+              <button onClick={()=>navigate("/form")} className="bg-[rgb(25,40,65)] border-white cursor-pointer border text-white px-6 py-2 rounded-md font-medium hover:bg-[rgb(135,219,219)] hover:text-[rgb(25,40,65)] transition-colors">
                 Book A Demo
               </button>
               <button className="bg-white border cursor-pointer border-blue-500 text-[rgb(25,40,65)] px-6 py-2 rounded-md font-medium hover:bg-blue-50 transition-colors">

@@ -7,6 +7,7 @@ import AboutUs from './pages/AboutUs'
 import ContactUs from './pages/ContactUs'
 import Career from './pages/Career'
 import Footer from './components/Footer'
+import Form from './components/Form'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/career" element={<Career />} />
+          <Route path="/form" element={<Form />} />
         </Routes>
       </div>
       <Footer />
