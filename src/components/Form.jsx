@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import formImage from '../assets/formImage.jpg';
 import { useNavigate } from 'react-router-dom';
+import { motion } from "framer-motion";
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -16,6 +17,9 @@ const Form = () => {
 
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
+
+  const [message, setMessage] = useState("");
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const timezones = Intl.supportedValuesOf('timeZone');
 
@@ -47,12 +51,40 @@ const Form = () => {
 
         if (response.ok) {
           console.log('Form Submitted:', formData);
-          navigate('/success');
+
+          setIsSuccess(true);
+          setMessage("Form submitted successfully.");
+          setFormData({
+            whoIsHim: '',
+            name: '',
+            grade: '',
+            email: '',
+            contactNumber: '',
+            timezone: '',
+            country: '',
+            message: '',
+          });
+        setTimeout(() => {
+          setMessage("");
+        }, 2000);
         } else {
           console.error('Form submission failed');
+          setIsSuccess(false);
+          setMessage("Couldn't submit form. Please try again later.");
+
+        setTimeout(() => {
+          setMessage("");
+        }, 2000);
         }
       } catch (error) {
         console.error('Error submitting form:', error);
+        console.error('Form submission failed');
+          setIsSuccess(false);
+          setMessage("Couldn't submit form");
+
+        setTimeout(() => {
+          setMessage("");
+        }, 2000);
       }
     }
   };
@@ -157,6 +189,17 @@ const Form = () => {
             Submit
           </button>
         </form>
+        {message && (
+          <motion.div
+            initial={{ y: -50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -50, opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            className={`mt-4 text-center p-2 rounded-lg text-white ${isSuccess ? "bg-green-500" : "bg-red-400"}`}
+          >
+            {message}
+          </motion.div>
+        )}
       </div>
     </div>
   );
