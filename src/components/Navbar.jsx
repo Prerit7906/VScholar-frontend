@@ -39,16 +39,16 @@ const Navbar = () => {
             About Us
           </Link>
           <Link 
-            to="/contact" 
+            to="/form" 
             className={`transition ${
-              location.pathname === "/contact" 
+              location.pathname === "/form" 
                 ? "text-[rgb(135,219,219)]" 
                 : "hover:text-gray-200"
             }`}
           >
-            Contact Us
+            connect with us
           </Link>
-          <Link 
+          {/* <Link 
             to="/career" 
             className={`transition ${
               location.pathname === "/career" 
@@ -57,7 +57,7 @@ const Navbar = () => {
             }`}
           >
             Career
-          </Link>
+          </Link> */}
         </div>
 
         {/* Mobile Menu Button */}

@@ -91,10 +91,10 @@ const Form = () => {
 
   return (
     <div className="relative min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="absolute inset-0 h-4/5 w-3/5 bg-cover bg-center" style={{ backgroundImage: `url(${formImage})` }}></div>
+      <div className="absolute inset-0 h-full w-3/5 bg-cover bg-center" style={{ backgroundImage: `url(${formImage})` }}></div>
       <div className="absolute top-0 left-0 w-5/5 h-full bg-black opacity-30"></div>
-      <div className="relative z-10 md:w-2/5 w-full bg-white p-8 rounded-lg shadow-lg ml-auto mr-10 my-20">
-        <h2 className="text-2xl font-semibold text-blue-900 mb-6 text-center">Inquiry Form</h2>
+      <div className="relative z-10 md:w-2/5 w-full bg-white p-8 rounded-lg shadow-lg ml-auto mr-10 mt-20 mb-10">
+        <h2 className="text-2xl font-semibold text-[rgb(25,40,65)] mb-6 text-center">Inquiry Form</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block font-medium text-gray-700">Are you *</label>
@@ -184,7 +184,7 @@ const Form = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-900 text-white py-2 rounded hover:bg-blue-700 transition"
+            className="w-full bg-[rgb(25,40,65)] text-white py-2 rounded hover:bg-[rgb(135,219,219)] hover:text-black transition"
           >
             Submit
           </button>

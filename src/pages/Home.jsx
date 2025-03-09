@@ -6,8 +6,9 @@ import 'swiper/css/pagination'
 import TopCard from '../components/cards/home/TopCard'
 import CourseCard from '../components/cards/home/CourseCard'
 import img1 from '../assets/home/img1.jpg'
-import img2 from '../assets/home/img2.jpg'
-import img3 from '../assets/home/img3.jpg'
+import teacher1 from '../assets/home/teacher1.jpg'
+import teacher2 from '../assets/home/teacher2.jpg'
+import teacher3 from '../assets/home/teacher3.jpg'
 import splash from '../assets/home/splash.png'
 import icon1 from '../assets/home/resources/icon1.jpg'
 import icon2 from '../assets/home/resources/icon2.png'
@@ -48,33 +49,26 @@ const Home = () => {
   // Data for the "Courses We Offer" section
   const courses = [
     {
-      image: img1,
+      image: teacher1,
       rating: 4.2,
       title: 'Academic Subjects',
       description: 'Master core subjects with our expert educators through interactive lessons, comprehensive curriculum, and real-world applications. Our courses in Mathematics, Science, Social Studies, English, and Computer Science are designed to build a strong academic foundation and foster critical thinking, ensuring you excel in every area.',
       subjects: ['Mathematics', 'Science', 'Social Studies', 'English', 'Computer Science'],
     },
     {
-      image: img1,
+      image: teacher2,
       rating: 4.0,
       title: 'Languages',
       description: 'Expand your horizons with our immersive language courses. Learn to speak Spanish, French, German, Chinese, and Japanese through engaging lessons that not only build your conversational skills but also deepen your understanding of diverse cultures. Enjoy interactive practice sessions and real-world applications to gain confidence and fluency.',
       subjects: ['Spanish', 'French', 'German', 'Chinese', 'Japanese'],
     },
     {
-      image: img3,
+      image: teacher3,
       rating: 4.5,
       title: 'Extracurriculars',
       description: "Unlock your creativity and explore new passions with our exciting extracurricular courses. Whether you're interested in music, art, dance, yoga, or coding, we provide engaging lessons designed to nurture your skills and help you grow beyond academics. Enhance your personal development while having fun!",
       subjects: ['Music', 'Art', 'Dance', 'Yoga', 'Coding'],
-    },
-    // {
-    //   image: img3,
-    //   rating: 4.5,
-    //   title: 'Exam Preparation',
-    //   description: 'Prepare for standardized tests with our comprehensive courses.',
-    //   subjects: ['SAT', 'ACT', 'IELTS', 'TOEFL', 'GRE'],
-    // }
+    }
   ]
 
   return (
@@ -117,11 +111,8 @@ const Home = () => {
 
             {/* CTA Buttons */}
             <div className="space-x-4">
-              <button onClick={()=>navigate("/form")} className="bg-[rgb(25,40,65)] border-white cursor-pointer border text-white px-6 py-2 rounded-md font-medium hover:bg-[rgb(135,219,219)] hover:text-[rgb(25,40,65)] transition-colors">
+              <button onClick={()=>navigate("/form")} className="bg-white cursor-pointer text-[rgb(25,40,65)] border border-[rgb(25,40,65)] px-6 py-2 rounded-md font-medium hover:bg-[rgb(135,219,219)] hover:text-[rgb(25,40,65)] transition-colors">
                 Book A Demo
-              </button>
-              <button className="bg-white border cursor-pointer border-blue-500 text-[rgb(25,40,65)] px-6 py-2 rounded-md font-medium hover:bg-blue-50 transition-colors">
-                Teach Lessons
               </button>
             </div>
           </div>
