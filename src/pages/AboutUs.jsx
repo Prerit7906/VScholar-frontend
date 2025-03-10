@@ -9,7 +9,7 @@ function AboutUs() {
     <div className="max-w-7xl mx-auto mt-10 px-4 sm:px-6 py-12">
       
       {/* Intro Section */}
-      <div className="flex flex-col md:flex-row items-center">
+      <div className="flex flex-col md:flex-row items-center my-15">
         {/* Left - Content Section */}
         <div className="md:w-1/2 text-center md:text-left">
           {/* Animated Heading */}
@@ -36,7 +36,7 @@ function AboutUs() {
       </div>
 
       {/* Why Choose VScholars Section */}
-      <div className="mt-16 flex flex-col md:flex-row items-center">
+      <div className="mt-16 flex flex-col md:flex-row items-center my-15">
         {/* Left - Content Section */}
         <div className="md:w-1/3 flex justify-center mt-6 md:mt-0">
           <img src={chooseImage} alt="Why Choose Us" className="h-auto w-full max-w-[300px] sm:max-w-[400px] md:max-w-full" />
