@@ -41,7 +41,7 @@ const Form = () => {
     e.preventDefault();
     if (validateForm()) {
       try {
-        const response = await fetch('http://localhost:8080/api/v1.0.0/formDetails/all', {
+        const response = await fetch('https://tution-backend.onrender.com/api/v1.0.0/formDetails/all', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
